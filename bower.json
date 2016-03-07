@@ -2,7 +2,7 @@
   "name": "pathfinder-ui",
   "homepage": "https://github.com/budiryan/pathfinder-ui",
   "authors": [
-    "budiryan <bryanaa@connect.ust.hk>"
+    "budiryan <bryanaa@connect.ust.hk>",
     "ksuhartono <ksuhartono@connect.ust.hk>"
   ],
   "description": "Robocon pathfinder grid coordinate system using paper.js",
