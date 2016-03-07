@@ -1,0 +1,35 @@
+{
+  "name": "pathfinder-ui",
+  "homepage": "https://github.com/budiryan/pathfinder-ui",
+  "authors": [
+    "budiryan <bryanaa@connect.ust.hk>"
+    "ksuhartono <ksuhartono@connect.ust.hk>"
+  ],
+  "description": "Robocon pathfinder grid coordinate system using paper.js",
+  "main": "index.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "pathfinder-ui"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "paper": "^0.9.25",
+    "pathfinding": "^0.4.17",
+    "jquery": "^2.2.1"
+  }
+}
