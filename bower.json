@@ -30,6 +30,7 @@
     "bootstrap": "^3.3.6",
     "paper": "^0.9.25",
     "pathfinding": "^0.4.17",
-    "jquery": "^2.2.1"
+    "jquery": "^2.2.1",
+    "socket.io": "^1.4.5"
   }
 }
