@@ -1,0 +1,22 @@
+.jumbotron{
+    text-align: center;
+}
+
+
+button{
+    border-radius: 4px;
+    margin:10px;
+}
+
+#buttonDiv{
+    right:100px;
+}
+
+#myCanvas{
+    border:1px solid #000000;
+}
+
+.stats{
+    font-family:"Comic Sans MS";
+    font-size:40px;
+}

@@ -10,17 +10,40 @@
     </head>
 
     <body>
-    <h1>Hello</h1>
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class = "col-xs-8 col-md-12 col-centered">
+                    <h1>Beautiful Robocon Pathfinder</h1>
+                </div>
+            </div>
+        </div>
+    </header>
 
-
-
-
-
-
+    <div class = "container">
+        <div class ="row row-content">
+            <div class = "col-xs-9 col-sm-9">
+                <canvas id="myCanvas" width="600" height="700" onmouseout="clearCoor()"></canvas>
+            </div>
+            <div class = "col-xs-3 col-sm-3 col-centered" id="buttonDiv">
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-primary" onmousedown="setStart()">Set Start Point</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-danger" onmousedown="setEnd()">Set End Point</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-success" onmousedown="findPath()">Find Path!</button>
+                </div>
+                <div class = "stats">
+                    <br>
+                    <text id="xPos"></text>
+                    <br>
+                    <text id="yPos"></text>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="bower_components/pathfinding/pathfinding-browser.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/paper/dist/paper-full.min.js"></script>
+    <script src="bower_components/paper/dist/paper-full.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     </body>
 

@@ -1,0 +1,21 @@
+{
+  "name": "pathfinding",
+  "authors": [
+    "budiryan <bryanaa@connect.ust.hk>"
+  ],
+  "description": "testing pathfinding drawing",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "pathfinding"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

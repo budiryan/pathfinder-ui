@@ -1,0 +1,58 @@
+.jumbotron{
+    text-align: center;
+}
+
+table {
+	border-spacing: 0px;
+    border: 1px solid black;
+}
+
+td {
+	width: 15px;
+	height: 15px;
+	background-color: #effcfc;
+    border: 1px solid black;
+}
+
+td.disabled {
+	background-color: #352f2f;
+    border: 1px solid black;
+}
+
+td.path {
+	background-color: #4fc12c;
+	border: 1px solid #effcfc;
+	width: 10px;
+	height: 10px;
+}
+td.start{
+    background-color: #337ab7;
+	border: 1px solid black;
+	width: 10px;
+	height: 10px;
+}
+
+td.end {
+	background-color: #f71b1b;
+	border: 1px solid black;
+	width: 10px;
+	height: 10px;
+}
+
+button{
+    border-radius: 4px;
+    margin:10px;
+}
+
+#buttonDiv{
+    right:100px;
+}
+
+#pathTable td:hover{
+    background: #9DD8D8;
+}
+
+#textMessage{
+    font-size: 30px;
+    text-align:center;
+}
