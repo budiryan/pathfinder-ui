@@ -14,7 +14,8 @@
         <div class="container">
             <div class="row row-header">
                 <div class = "col-xs-8 col-md-12 col-centered">
-                    <h1>Beautiful Robocon Pathfinder</h1>
+                    <h1>Robocon Path Plotter</h1>
+                    <img src="img/robocon_map.jpg" id="roboconMap"/>
                 </div>
             </div>
         </div>
@@ -23,16 +24,16 @@
     <div class = "container">
         <div class ="row row-content">
             <div class = "col-xs-9 col-sm-9">
-                <canvas id="myCanvas" width="600" height="700" onmouseout="clearCoor()"></canvas>
+                <canvas id="myCanvas" width="700" height="697" onmouseout="clearCoor()"></canvas>
             </div>
             <div class = "col-xs-3 col-sm-3 col-centered" id="buttonDiv">
                 <div class="btn-toolbar">
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-primary" onmousedown="setStart()">Set Start Point</button>
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-danger" onmousedown="setEnd()">Set End Point</button>
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-success" onmousedown="findPath()">Find Path!</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-danger" onmousedown="removePath()">Delete Path</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-success" onmousedown="generatePath()">Generate Coordinate</button>
                 </div>
                 <div class = "stats">
                     <br>
+                    <h2>Cartesian Coordinate:</h2>
                     <text id="xPos"></text>
                     <br>
                     <text id="yPos"></text>

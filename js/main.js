@@ -1,17 +1,92 @@
-document.addEventListener("DOMContentLoaded", init, false);
+//Global variables
+
+//Width & height of the gamefield
+var width = 700;
+var height = 698;
+
 var xObject = document.getElementById("xPos");
 var yObject = document.getElementById("yPos");
 var myCanvas;
-function init()
-{
+//X & Y here follow Web based coordinate system
+var x = new Number();
+var y = new Number();
+
+//Cartesian X & Y
+var cartesianX = 0;
+var cartesianY = 0;
+
+//X & Y for pathfinding algorithm
+var pathfindingX = 0;
+var pathfindingY = 0;
+
+//Curved Path
+var path;
+
+//Coordinate array in cartesian system
+var coordinate = new Array();
+
+function storeCoordinate(xVal, yVal, array) {
+    array.push({x: xVal, y: yVal});
+}
+
+function removePath(){
+    coordinate = new Array();
+    path.remove();
+}
+
+function generatePath(){
+    //See console to view the printed Coordinates
+    for(var i = 0 ; i < coordinate.length ;i++){
+        //Print the stored coordinates
+        console.log(["X: "+ coordinate[i].x,"Y: " + coordinate[i].y]);
+    }
+}
+
+window.onload = function(){
+    //Setup the things
     myCanvas = document.getElementById("myCanvas");
     myCanvas.addEventListener("mousemove", getPosition, false);
+    paper.setup(myCanvas);
+    var img = new paper.Raster("roboconMap");
+    img.position = paper.view.center;
+
+    var tool = new paper.Tool();
+    tool.minDistance = 20;
+
+    tool.onMouseDown = function(event){
+        if (path) {
+            path.selected = false;
+            path.remove();
+        };
+        path = new paper.Path();
+        path.strokeColor = 'black';
+        path.fullySelected = true;
+    }
+
+    tool.onMouseDrag = function(event) {
+        path.add(event.point);
+        storeCoordinate(cartesianX,cartesianY,coordinate);
+    }
+
+    tool.onMouseUp = function(event) {
+        path.smooth();
+        path.selected = false;
+    }
 }
 
 function getPosition(event)
 {
-    var x = new Number();
-    var y = new Number();
+    convertCoordinate(event);
+    xObject.textContent = "X: " + cartesianX;
+    yObject.textContent = "Y: " + cartesianY;
+}
+
+function clearCoor(){
+    xObject.textContent = " ";
+    yObject.textContent = " ";
+}
+
+function convertCoordinate(passedEvent){
     var offsetX = 0;
     var offsetY = 0;
     var element = myCanvas;
@@ -24,18 +99,18 @@ function getPosition(event)
 
         } while (( element = element.offsetParent));
     }
-    console.log("offsetX "+offsetX);
-    console.log("offsetY "+offsetY);
-    x = event.pageX - offsetX;
-    y = event.pageY - offsetY;
-    xObject.textContent = "X: " + x;
-    yObject.textContent = "Y: " + y;
+    x = passedEvent.pageX - offsetX;
+    y = passedEvent.pageY - offsetY;
 
+    //Convert to cartesian coordinate system
+    cartesianX = x - (width/2);
+    cartesianY  = Math.abs(y-height);
+    cartesianY  = cartesianY - (height/2);
 
-
+    pathfindingX = cartesianX + (width/2);
+    pathfindingY = cartesianY + (height/2);
 }
 
-function clearCoor(){
-    xObject.textContent = " ";
-    yObject.textContent = " ";
-}
+
+
+
