@@ -2,7 +2,7 @@
 
 //Width & height of the gamefield
 var width = 700;
-var height = 698;
+var height = 700;
 
 var xObject = document.getElementById("xPos");
 var yObject = document.getElementById("yPos");
@@ -51,7 +51,7 @@ window.onload = function(){
     img.position = paper.view.center;
 
     var tool = new paper.Tool();
-    tool.minDistance = 20;
+    //tool.minDistance = 20;
 
     tool.onMouseDown = function(event){
         if (path) {
@@ -65,12 +65,19 @@ window.onload = function(){
 
     tool.onMouseDrag = function(event) {
         path.add(event.point);
-        storeCoordinate(cartesianX,cartesianY,coordinate);
     }
 
     tool.onMouseUp = function(event) {
-        path.smooth();
-        path.selected = false;
+        path.simplify();
+        var tempX;
+        var tempY;
+        for(var i = 0; i < path.segments.length;i++) {
+            tempX = Math.floor(path.segments[i].point.x - (width / 2));
+            tempY  = Math.abs(path.segments[i].point.y - height);
+            tempY  = tempY - (height / 2);
+            storeCoordinate(tempX,tempY,coordinate);
+        }
+        path.selected = true;
     }
 }
 
@@ -103,12 +110,12 @@ function convertCoordinate(passedEvent){
     y = passedEvent.pageY - offsetY;
 
     //Convert to cartesian coordinate system
-    cartesianX = x - (width/2);
+    cartesianX = x - (width / 2);
     cartesianY  = Math.abs(y-height);
-    cartesianY  = cartesianY - (height/2);
+    cartesianY  = cartesianY - (height / 2);
 
-    pathfindingX = cartesianX + (width/2);
-    pathfindingY = cartesianY + (height/2);
+    pathfindingX = cartesianX + (width / 2);
+    pathfindingY = cartesianY + (height / 2);
 }
 
 
