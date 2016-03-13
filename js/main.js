@@ -1,5 +1,3 @@
-//Global variables
-
 //Width & height of the gamefield
 var width = 700;
 var height = 700;
