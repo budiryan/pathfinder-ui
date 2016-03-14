@@ -67,6 +67,7 @@ window.onload = function(){
     }
 
     tool.onMouseUp = function(event) {
+        path.smooth();
         path.simplify();
         var tempX;
         var tempY;
