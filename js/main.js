@@ -30,6 +30,7 @@ function storeCoordinate(xVal, yVal, array) {
 function removePath(){
     coordinate = new Array();
     path.remove();
+    console.clear();
 }
 
 function generatePath(){
