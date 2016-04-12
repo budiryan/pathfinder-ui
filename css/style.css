@@ -21,6 +21,10 @@ button{
     font-size:40px;
 }
 
+#coorList{
+    font-size:25px;
+}
+
 img{
     display:none;
 }
