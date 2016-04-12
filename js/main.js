@@ -28,18 +28,17 @@ function storeCoordinate(xVal, yVal, array) {
     array.push({x: xVal, y: yVal});
 }
 
-function removePath(){
+function removePath() {
     coordinate = new Array();
     path.remove();
     console.clear();
     coorListObject.textContent = "Please drag a line";
 }
 
-function generatePath(){
+function generatePath() {
     //See console to view the printed Coordinates
-    if(coordinate.length === 0)coorListObject.textContent = "You didn't drag any line, please drag a line";
-    else
-    {
+    if (coordinate.length === 0)coorListObject.textContent = "You didn't drag any line, please drag a line";
+    else {
         coorListObject.textContent = "Coordinate List: "
         for (var i = 0; i < coordinate.length; i++) {
             //Print the stored coordinates
@@ -50,7 +49,7 @@ function generatePath(){
     }
 }
 
-window.onload = function(){
+window.onload = function () {
     //Setup the things
     myCanvas = document.getElementById("myCanvas");
     myCanvas.addEventListener("mousemove", getPosition, false);
@@ -61,49 +60,49 @@ window.onload = function(){
     var tool = new paper.Tool();
     //tool.minDistance = 20;
 
-    tool.onMouseDown = function(event){
+    tool.onMouseDown = function (event) {
         if (path) {
             path.selected = false;
             path.remove();
-        };
+        }
+        ;
         path = new paper.Path();
         path.strokeColor = 'black';
         path.fullySelected = true;
     }
 
-    tool.onMouseDrag = function(event) {
+    tool.onMouseDrag = function (event) {
         path.add(event.point);
     }
 
-    tool.onMouseUp = function(event) {
+    tool.onMouseUp = function (event) {
         path.smooth();
         path.simplify();
         var tempX;
         var tempY;
-        for(var i = 0; i < path.segments.length;i++) {
+        for (var i = 0; i < path.segments.length; i++) {
             tempX = Math.floor(path.segments[i].point.x - (width / 2));
-            tempY  = Math.abs(path.segments[i].point.y - height);
-            tempY  = tempY - (height / 2);
-            storeCoordinate(tempX,tempY,coordinate);
+            tempY = Math.abs(path.segments[i].point.y - height);
+            tempY = tempY - (height / 2);
+            storeCoordinate(tempX, tempY, coordinate);
         }
         path.selected = true;
     }
     coorListObject.textContent = "Please drag a line";
 }
 
-function getPosition(event)
-{
+function getPosition(event) {
     convertCoordinate(event);
     xObject.textContent = "X: " + cartesianX;
     yObject.textContent = "Y: " + cartesianY;
 }
 
-function clearCoor(){
+function clearCoor() {
     xObject.textContent = " ";
     yObject.textContent = " ";
 }
 
-function convertCoordinate(passedEvent){
+function convertCoordinate(passedEvent) {
     var offsetX = 0;
     var offsetY = 0;
     var element = myCanvas;
@@ -121,8 +120,8 @@ function convertCoordinate(passedEvent){
 
     //Convert to cartesian coordinate system
     cartesianX = x - (width / 2);
-    cartesianY  = Math.abs(y-height);
-    cartesianY  = cartesianY - (height / 2);
+    cartesianY = Math.abs(y - height);
+    cartesianY = cartesianY - (height / 2);
 
     pathfindingX = cartesianX + (width / 2);
     pathfindingY = cartesianY + (height / 2);
