@@ -4,6 +4,7 @@ var height = 700;
 
 var xObject = document.getElementById("xPos");
 var yObject = document.getElementById("yPos");
+var coorListObject = document.getElementById("coorList");
 var myCanvas;
 //X & Y here follow Web based coordinate system
 var x = new Number();
@@ -31,13 +32,21 @@ function removePath(){
     coordinate = new Array();
     path.remove();
     console.clear();
+    coorListObject.textContent = "Please drag a line";
 }
 
 function generatePath(){
     //See console to view the printed Coordinates
-    for(var i = 0 ; i < coordinate.length ;i++){
-        //Print the stored coordinates
-        console.log(["X: "+ coordinate[i].x,"Y: " + coordinate[i].y]);
+    if(coordinate.length === 0)coorListObject.textContent = "You didn't drag any line, please drag a line";
+    else
+    {
+        coorListObject.textContent = "Coordinate List: "
+        for (var i = 0; i < coordinate.length; i++) {
+            //Print the stored coordinates
+            console.log(["X: " + coordinate[i].x, "Y: " + coordinate[i].y]);
+            if (i === coordinate.length - 1) coorListObject.textContent += "( " + coordinate[i].x + "," + coordinate[i].y + ")";
+            else coorListObject.textContent += "( " + coordinate[i].x + "," + coordinate[i].y + ") ,";
+        }
     }
 }
 
@@ -79,6 +88,7 @@ window.onload = function(){
         }
         path.selected = true;
     }
+    coorListObject.textContent = "Please drag a line";
 }
 
 function getPosition(event)
