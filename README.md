@@ -1,7 +1,7 @@
 #Robocon Pathfinder UI
 Robocon pathfinder in cartesian coordinate system using paper.js
 
-#author
+#Author
 Budi Ryan
 
 #Live Demo:
