@@ -5,7 +5,7 @@ Robocon pathfinder in cartesian coordinate system using paper.js
 Budi Ryan
 
 #Live Demo:
-http://www.budiryan.xyz/
+http://ihome.ust.hk/~bryanaa/pathfinder-ui/
 
 #Notice when intalling:
 Install all the dependencies using bower install
